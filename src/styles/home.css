@@ -1,0 +1,15 @@
+.resume_container {
+  background-color: #fafafa;
+  padding: 30px;
+}
+
+.main_resume {
+  margin: 0 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.main_investments {
+  max-width: 1200px;
+  margin: 0 auto;
+}

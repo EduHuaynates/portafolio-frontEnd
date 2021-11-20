@@ -1,0 +1,23 @@
+.card_container {
+  padding: 16px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card_container:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #f5f5f5;
+}
+
+.card_title {
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card_kpi {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}

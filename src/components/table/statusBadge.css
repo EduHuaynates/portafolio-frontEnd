@@ -1,0 +1,8 @@
+.statusRunning {
+  color: green;
+  /* font-size: 50px; */
+}
+
+.statusWaiting {
+  color: rgb(232, 232, 14);
+}

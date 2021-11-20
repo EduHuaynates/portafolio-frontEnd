@@ -1,0 +1,27 @@
+.navBar_container {
+  background-color: #000;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navBar_list_container,
+.login_list_container {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.list_item,
+.login_item,
+.logo_container {
+  color: #fff;
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.list_item:hover,
+.login_item:hover,
+.logo_container:hover {
+  color: #f0b90b;
+}
