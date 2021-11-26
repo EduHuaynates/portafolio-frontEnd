@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/form.css";
 // import Error from "../components/error/Error";
 import { Toaster, toast } from "react-hot-toast";
 // import Main from '../Componentes/Main';
@@ -48,35 +48,44 @@ export default function Signup({ signup, mostrarError }) {
         <h5 className="authTitle">Clontagram</h5>
         <p className="authp">Regístrate para que ver tus inversiones</p>
         <form className="authForm" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            className="authInput"
-            required
-            minLength="3"
-            maxLength="100"
-            onChange={handleInputChange}
-            value={usuario.username}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="authInput"
-            required
-            onChange={handleInputChange}
-            value={usuario.email}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Contraseña"
-            className="authInput"
-            required
-            onChange={handleInputChange}
-            value={usuario.password}
-          />
+          <div className="inputContainer">
+            <i className="fas fa-user icon"></i>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              className="authInput"
+              required
+              minLength="3"
+              maxLength="100"
+              onChange={handleInputChange}
+              value={usuario.username}
+            />
+          </div>
+          <div className="inputContainer">
+            <i className="fas fa-envelope icon"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="authInput"
+              required
+              onChange={handleInputChange}
+              value={usuario.email}
+            />
+          </div>
+          <div className="inputContainer">
+            <i className="fas fa-lock icon"></i>
+            <input
+              type="password"
+              name="password"
+              placeholder="Contraseña"
+              className="authInput"
+              required
+              onChange={handleInputChange}
+              value={usuario.password}
+            />
+          </div>
           <button className="authSubmit" type="submit">
             Sign up
           </button>

@@ -4,12 +4,26 @@
 }
 
 .main_resume {
-  margin: 0 20%;
+  margin: 0 auto;
+  max-width: 1000px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .main_investments {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
+}
+
+.main_title {
+  text-align: center;
+}
+.add_investment {
+  border-radius: 0.25rem;
+  border: none;
+  background-color: rgb(45, 178, 146);
+  color: white;
+  padding: 10px 15px;
+  margin: 15px 0px;
+  cursor: pointer;
 }

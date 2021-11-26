@@ -1,0 +1,78 @@
+.modal_invest_background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* filter: blur(4px); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal_invest_container {
+  width: 250px;
+  /* height: 500px; */
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.modal_header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.modal_title{
+    text-align: center;
+}
+
+.modal_close_container{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+
+.btn_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.close_button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.modal_add_invest {
+  border: none;
+  width: 100%;
+  border-radius: 0.25rem;
+  margin: 15px 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(47, 90, 233);
+}
+
+.modal_cancel_invest {
+  border: none;
+  width: 100%;
+  border-radius: 0.25rem;
+  margin: 15px 5px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  background-color: rgb(238, 66, 66);
+}

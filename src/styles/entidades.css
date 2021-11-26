@@ -1,0 +1,12 @@
+.main_entidades{
+    display: flex;
+    justify-content: center;
+}
+
+.entidadesContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    margin-top: 20px;
+    gap: 10px;
+}

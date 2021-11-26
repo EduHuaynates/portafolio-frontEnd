@@ -2,20 +2,38 @@ import MUIDataTable from "mui-datatables";
 import { ThemeProvider } from "@mui/styles";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import StatusBadge from "./statusBadge";
+// import ModInvest from "../../views/modInvest";
+import "./table.css";
 
-export default function Table() {
+export default function Table({ inv, closeModal, setModalData, setType }) {
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
+  const data = inv.map((i) => {
+    return [
+      i.empresa,
+      i.capital,
+      i.t_anual,
+      i.periodo,
+      i.status,
+      i.i_mensual,
+      i._id,
+    ];
+  });
 
-  const data = [
-    ["Siembra", "10000 S/.", "24%", 12, "Running", 200],
-    ["Carrillo", "15000 S/.", "36%", 12, "Waiting", 450],
-    ["Eica Variable", "10000 S/.", , 12, "Waiting"],
-    ["Eica Fijo", "3000 S/.", "22%", 10, "Waiting", 450],
-    ["Inversiones.io", "5000 S/.", "19%", 5, "Running", 450],
-    ["Inversiones.io", "5000 S/.", "20%", 2, "Running", 450],
-    ["Biera Construccion", "15000 S/.", "38%", 12, "Running", 450],
-  ];
+  const onClickEdit = (rowdata) => {
+    closeModal(true);
+    // console.log(rowdata);
+    setModalData({
+      empresa: rowdata[0],
+      capital: rowdata[1],
+      t_anual: rowdata[2],
+      periodo: rowdata[3],
+      status: rowdata[4],
+      i_mensual: rowdata[5],
+      id_invest: rowdata[6]
+    });
+    setType(2);
+  };
 
   const columns = [
     {
@@ -58,13 +76,28 @@ export default function Table() {
         // empty: true,
       },
     },
+    {
+      name: "Edit",
+      options: {
+        customBodyRender: (dataIndex, rowIndex) => {
+          return (
+            <button
+              onClick={() => {
+                onClickEdit(data[rowIndex.rowIndex]);
+              }}
+              className="table_edit_button"
+            >
+              <i className="fas fa-edit"></i>
+            </button>
+          );
+        },
+      },
+    },
   ];
 
   const options = {
     filter: true,
     filterType: "dropdown",
-    responsive: "stacked",
-    page: 2,
     onColumnSortChange: (changedColumn, direction) =>
       console.log("changedColumn: ", changedColumn, "direction: ", direction),
     onChangeRowsPerPage: (numberOfRows) =>
@@ -74,13 +107,8 @@ export default function Table() {
 
   return (
     <ThemeProvider theme={theme}>
-      <MUIDataTable
-        title={"Portafolio de Inversion EH"}
-        data={data}
-        columns={columns}
-        options={options}
-      />
-      <StatusBadge status={"Running"}/>
+      <MUIDataTable data={data} columns={columns} options={options} />
+      {/* <StatusBadge status={"Running"} /> */}
     </ThemeProvider>
   );
 }

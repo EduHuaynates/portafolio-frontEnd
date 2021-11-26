@@ -1,0 +1,31 @@
+.entidad_container {
+  width: 500px;
+  height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid rgb(38, 95, 252);
+  border-radius: 10px;
+  margin: auto 10px;
+}
+
+.entidad_title{
+    font-weight: 600;
+}
+
+.entidad_contact_cel{
+    margin: 0 10px;
+}
+.logo_container{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.entidad_logo {
+  max-width: 100%;
+  max-height: 100%;
+  /* align-self: center; */
+  /* filter: ; */
+}

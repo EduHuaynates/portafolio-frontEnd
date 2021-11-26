@@ -1,10 +1,17 @@
 import "./card.css";
 
-export default function card({ title, kpi }) {
+export default function card({ title, kpi, color, fontColor, classIcon }) {
   return (
-    <div className="card_container">
-      <p className="card_title"> {title}</p>
-      <span className="card_kpi"> {kpi}</span>
+    <div style={{ backgroundColor: color }} className="card_container">
+      <div className="cardHeadContainer">
+        <i style={{ color: fontColor }} className={classIcon}></i>
+        <p style={{ color: fontColor }} className="card_title">
+          {title}
+        </p>
+      </div>
+      <span style={{ color: fontColor }} className="card_kpi">
+        {kpi}
+      </span>
     </div>
   );
 }

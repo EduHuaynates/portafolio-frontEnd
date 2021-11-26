@@ -4,6 +4,7 @@ import Login from "./views/login";
 import Signup from "./views/signup";
 import Error from "./components/error/Error";
 import NavBar from "./components/navBar/navBar";
+import Entidades from "./views/entidades";
 import "./App.css";
 
 import Axios from "axios";
@@ -23,6 +24,7 @@ export default function App() {
   const [usuario, setUsuario] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
   const [error, SetError] = useState(null);
+  
 
   // const dispatch = useDispatch();
 
@@ -36,8 +38,6 @@ export default function App() {
       try {
         const { data: usuario } = await Axios.get("api/user/whoami");
         setUsuario(usuario);
-        // dispatch(whoiam(usuario));
-        // console.log("usuarito", usuario);
         setLoadingUser(false);
       } catch (error) {
         console.log(error);
@@ -107,6 +107,10 @@ export default function App() {
     return (
       <Routes>
         <Route path="/" element={<Home usuario={usuario} />}></Route>
+        <Route
+          path="/entidades"
+          element={<Entidades usuario={usuario} />}
+        ></Route>
       </Routes>
     );
   }

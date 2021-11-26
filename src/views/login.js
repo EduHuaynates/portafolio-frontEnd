@@ -1,7 +1,8 @@
-import "../styles/login.css";
+import "../styles/form.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
+import img from "../images/investment.jpg";
 
 export default function Login({ showError, login }) {
   const [user, setUser] = useState({
@@ -40,31 +41,42 @@ export default function Login({ showError, login }) {
   return (
     <div className="authPage">
       <div className="authContainer">
-        <h5 className="authTitle"> Login to Portafolio</h5>
-        <form className="authForm" onSubmit={handleSubmit}>
-          <input
-            name="username"
-            className="authInput"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Username"
-          />
-          <input
-            name="password"
-            className="authInput"
-            onChange={handleInputChange}
-            type="password"
-            placeholder="Password"
-          />
-          <button className="authSubmit" type="submit">
-            Login
-          </button>
-        </form>
+        {/* <div className="authImageContainer">
+          <img src={img} alt="logo" />
+        </div> */}
+        {/* <div className="authMainContainer"> */}
+          <h5 className="authTitle"> Login to Portafolio</h5>
+          <form className="authForm" onSubmit={handleSubmit}>
+            <div className="inputContainer">
+              <i className="fas fa-user icon"></i>
+              <input
+                name="username"
+                className="authInput"
+                onChange={handleInputChange}
+                type="text"
+                placeholder="Username"
+              />
+            </div>
+            <div className="inputContainer">
+              <i className="fas fa-lock icon"></i>
+              <input
+                name="password"
+                className="authInput"
+                onChange={handleInputChange}
+                type="password"
+                placeholder="Password"
+              />
+            </div>
+            <button className="authSubmit" type="submit">
+              Login
+            </button>
+          </form>
 
-        <p className="authp">
-          Dont you have an account? <Link to="/signup">Sign Up</Link> Now
-        </p>
-        <p className="authp"> Create an account </p>
+          <p className="authp">
+            Dont you have an account? <Link to="/signup">Sign Up</Link> Now
+          </p>
+          <p className="authp"> Create an account </p>
+        {/* </div> */}
       </div>
       <Toaster position="top-left" />
     </div>
