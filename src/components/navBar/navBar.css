@@ -1,15 +1,29 @@
-.navBar_container {
+.options_container{
+  display: flex;
+}
+.logo_container{
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  /* width: 10%; */
+}
+
+.navBar_container{
   background-color: #000;
   padding: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .navBar_list_container,
 .login_list_container {
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 .list_item,

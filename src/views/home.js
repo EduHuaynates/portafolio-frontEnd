@@ -5,6 +5,7 @@ import Table from "../components/table/table";
 import ModInvest from "./modInvest";
 import Axios from "axios";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 export default function Home({ usuario }) {
   const [inv, setInv] = useState([]);
@@ -30,7 +31,7 @@ export default function Home({ usuario }) {
     }
 
     loadInvest();
-  }, [modal]);
+  }, [modal, usuario]);
 
   return (
     <>
@@ -95,6 +96,7 @@ export default function Home({ usuario }) {
           />
         </div>
       </main>
+      {/* <Outlet /> */}
       {modal && (
         <ModInvest
           usuario={usuario}

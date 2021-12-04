@@ -5,6 +5,7 @@ import Signup from "./views/signup";
 import Error from "./components/error/Error";
 import NavBar from "./components/navBar/navBar";
 import Entidades from "./views/entidades";
+import EntidadStats from "./views/entidadStats";
 import "./App.css";
 
 import Axios from "axios";
@@ -15,7 +16,12 @@ import {
   initAxiosInterceptors,
 } from "./helpers/auth-helpers";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useMatch,
+} from "react-router-dom";
 // import { useDispatch } from "react-redux";
 
 initAxiosInterceptors();
@@ -24,7 +30,6 @@ export default function App() {
   const [usuario, setUsuario] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
   const [error, SetError] = useState(null);
-  
 
   // const dispatch = useDispatch();
 
@@ -37,6 +42,7 @@ export default function App() {
 
       try {
         const { data: usuario } = await Axios.get("api/user/whoami");
+        console.log(usuario, "userwhoami");
         setUsuario(usuario);
         setLoadingUser(false);
       } catch (error) {
@@ -108,8 +114,16 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home usuario={usuario} />}></Route>
         <Route
-          path="/entidades"
+          exact
+          path="entidades"
           element={<Entidades usuario={usuario} />}
+        ></Route>
+        <Route
+          exact
+          path="entidades/:id"
+          element={
+            <EntidadStats usuario={usuario} match={useMatch("entidades/:id")} />
+          }
         ></Route>
       </Routes>
     );

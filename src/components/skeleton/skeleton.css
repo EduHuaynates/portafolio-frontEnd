@@ -1,0 +1,65 @@
+.sk_entidad_container {
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid rgb(196, 190, 190, 2);
+  border-radius: 10px;
+  /* margin: auto 10px; */
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+/* .sk_entidad_container:hover {
+  transform: scale(1.05);
+  z-index: 10;
+} */
+
+@keyframes skeleton {
+  to {
+    opacity: 0.5;
+  }
+}
+
+.sk_entidad_main {
+  width: 90%;
+  display: flex;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  padding: 15px;
+  /* background-color: #4b4a4a; */
+}
+
+.sk_entidad_title,
+.sk_entidad_type,
+.sk_entidad_inversiones {
+  background-color: #4b4a4a;
+  color: #4b4a4a;
+  margin-bottom: 5px;
+  animation: skeleton 1s ease infinite alternate;
+}
+
+.sk_entidad_contact_cel {
+  margin: 0 10px;
+}
+
+.sk_entidad_logo_container {
+  width: 300px;
+  height: 300px;
+  /* margin-bottom: 15px; */
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: #4b4a4a;
+  animation: skeleton 1s ease infinite alternate;
+  /* border-bottom: 1px solid rgb(196, 190, 190, 2); */
+}
+
+.sk_entidad_logo {
+  max-width: 100%;
+  max-height: 100%;
+  /* align-self: center; */
+  /* filter: ; */
+}

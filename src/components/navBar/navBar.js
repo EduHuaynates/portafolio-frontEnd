@@ -11,29 +11,42 @@ export default function navBar({ usuario }) {
 
       <div className="options_container">
         <ul className="navBar_list_container">
-          <li className="list_item"> 
-          <Link to="/">Inversiones</Link>
+          <li className="list_item">
+            <Link className="link" to="/">
+              Inversiones
+            </Link>
           </li>
           <li className="list_item">
-            <Link to="/entidades">Entidades</Link>
+            <Link className="link" to="/entidades">
+              Entidades
+            </Link>
           </li>
           {/* <li className="list_item">  </li> */}
         </ul>
+
+        {usuario ? (
+          <div className="login_container">
+            <ul className="login_list_container">
+              <li className="login_item">Edu Huaynates</li>
+            </ul>
+          </div>
+        ) : (
+          <div className="login_container">
+            <ul className="login_list_container">
+              <li className="login_item">
+                <Link className="link" to="/">
+                  Iniciar Sesion
+                </Link>
+              </li>
+              <li className="login_item">
+                <Link className="link" to="/signup">
+                  Registrarse
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
-      {usuario ? (
-        <div className="login_container">
-          <ul className="login_list_container">
-            <li className="login_item">Edu Huaynates</li>
-          </ul>
-        </div>
-      ) : (
-        <div className="login_container">
-          <ul className="login_list_container">
-            <li className="login_item">Iniciar Sesion</li>
-            <li className="login_item">Registrarse</li>
-          </ul>
-        </div>
-      )}
     </nav>
   );
 }

@@ -1,0 +1,51 @@
+.aside_entidad_info_container {
+  max-width: 350px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid rgb(196, 190, 190, 2);
+  border-radius: 5px;
+}
+
+.aside_logo_container {
+  margin-bottom: 15px;
+}
+.aside_logo_entidad {
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.aside_entidad_feature {
+  /* display: flex; */
+  padding: 15px 0px;
+  border-top: 1px solid rgb(196, 190, 190, 2);
+}
+
+.aside_entidad_title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.aside_entidad_subtitle {
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.aside_entidad_nested {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.nested_contact {
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.feature_contact {
+  display: flex;
+  border: none;
+  padding: 0;
+}
