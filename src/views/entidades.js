@@ -88,7 +88,13 @@ export default function Entidades() {
           <Skeleton type={""} />
         ) : (
           filterEnt.map((entidad, key) => {
-            return <Entidad key={key} entidad={entidad} type={"V"} />;
+            return (
+              <Entidad
+                key={key}
+                entidad={entidad}
+                type={"V"}
+              />
+            );
           })
         )}
       </div>

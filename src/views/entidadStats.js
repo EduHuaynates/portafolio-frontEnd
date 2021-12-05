@@ -4,6 +4,7 @@ import EntidadAllInfo from "../components/entidad/entidadAllInfo";
 import Post from "../components/post/post";
 import Card from "../components/cards/card";
 import SimilarEntidad from "../components/entidad/similarEnts";
+import { Toaster, toast } from "react-hot-toast";
 // import { useLocation } from "react-router-dom";
 import Axios from "axios";
 
@@ -19,12 +20,38 @@ async function getSimilarEntidad(TipoInversion, id) {
   return data;
 }
 
-export default function EntidadStats({ match }) {
+async function getPosts(Entitie) {
+  const { data } = await Axios.get(`/api/post/${Entitie}`, {
+    params: { Entitie },
+  });
+  return data;
+}
+
+export default function EntidadStats({ match, usuario }) {
   const [singleEnt, setSingleEnt] = useState(null);
   const [similarEnt, setSimilarEnt] = useState(null);
+  const [cargarPost, setCargarPost] = useState(0);
   const [load, setLoad] = useState(true);
+  const [post, setPost] = useState([]);
   const entID = match.params.id;
-  // console.log(entID, "id");
+
+  const notify = (promise) => {
+    toast.promise(promise, {
+      loading: "Loading",
+      success: (data) => `Post Creado`,
+      error: (err) => `${err.response.data.message}`,
+    });
+  };
+
+  async function sendPost(message) {
+    const Promise = Axios.post(`/api/post/`, {
+      Message: message,
+      Entitie: entID,
+      User: usuario._id,
+    });
+    notify(Promise);
+    setCargarPost(() => cargarPost + 1);
+  }
 
   useEffect(() => {
     const getEntidad = async () => {
@@ -36,10 +63,15 @@ export default function EntidadStats({ match }) {
             entidadNueva.TipoInversion,
             entID
           );
-          console.log(entidadNueva.TipoInversion, "tipoinv");
-          console.log(similarEntidad, "similar");
           setSimilarEnt(similarEntidad);
-          setLoad(false);
+
+          try {
+            const postFeed = await getPosts(entID);
+            setPost(postFeed);
+            setLoad(false);
+          } catch (error) {
+            console.log(error, "Error Post Feed");
+          }
         } catch (error) {
           console.log(error, "errortipo");
         }
@@ -50,9 +82,7 @@ export default function EntidadStats({ match }) {
     };
 
     getEntidad();
-  }, [entID]);
-
-  // console.log(similarEnt,'similar');
+  }, [entID, cargarPost]);
 
   return (
     <div className="entidadContainer">
@@ -101,9 +131,13 @@ export default function EntidadStats({ match }) {
         <div className="entidad_comments_container">
           <p className="entidadCommentTitle">CONSULTAS</p>
           <div className="entidad_comments">
-            <Post />
-            <Post />
-            <Post />
+            <Post type={"NEW"} sendPost={sendPost} setLoad={setLoad} />
+
+            {load
+              ? ""
+              : post.map((sp, key) => {
+                  return <Post post={sp} key={key} />;
+                })}
           </div>
         </div>
       </main>
@@ -120,6 +154,7 @@ export default function EntidadStats({ match }) {
           </div>
         )}
       </aside>
+      <Toaster />
     </div>
   );
 }
