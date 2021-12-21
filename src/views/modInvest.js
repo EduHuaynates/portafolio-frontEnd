@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/form.css";
 import "../styles/modal.css";
 import { Toaster, toast } from "react-hot-toast";
 import Axios from "axios";
+import scheDulePayment from "../utils/schedulePayment";
 
 export default function AddInvest({ usuario, closeModal, modalData, type }) {
-  // console.log(modalData, "modalData");
+  const [sendData, setSendData] = useState(false);
   const [invest, setInvest] = useState({
     ...modalData,
+    schedule: [],
     user: usuario._id,
   });
+
+  useEffect(() => {
+    if (sendData) {
+      if (type === 1) {
+        const promiseLogin = Axios.post("/api/invest/", invest);
+        notify(promiseLogin);
+      } else if (type === 2) {
+        const { id_invest, ...others } = invest;
+        const promiseLogin = Axios.put(`/api/invest/${id_invest}`, {
+          ...others,
+        });
+        notify(promiseLogin);
+      }
+    }
+  }, [sendData]);
 
   const handleInputChange = (e) => {
     setInvest({
@@ -23,22 +40,29 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
       loading: "Loading",
       success: (data) =>
         `${type === 1 ? `Inversion Agregada` : `Inversion Actualizada`} `,
-      error: (err) => `${err.response.data.message}`,
+      // error: (err) => `${err.response.data.message}`,
+      // error: (err) => `Actualiza tu inversion`,
     });
   };
 
-  async function handleSubmit(e) {
+  const getSchedule = () => {
+    setInvest({
+      ...invest,
+      schedule: scheDulePayment(
+        invest.capital,
+        invest.periodo,
+        invest.t_anual,
+        invest.retornoInteres,
+        invest.retornoCapital,
+        invest.fecha
+      ),
+    });
+  };
+
+  function handleSubmit(e) {
     e.preventDefault();
-    if (type === 1) {
-      const promiseLogin = Axios.post("/api/invest/", invest);
-      notify(promiseLogin);
-    } else if (type === 2) {
-      const { id_invest, ...others } = invest;
-      const promiseLogin = Axios.put(`/api/invest/${id_invest}`, {
-        ...others,
-      });
-      notify(promiseLogin);
-    }
+    getSchedule();
+    setSendData(() => !sendData);
   }
 
   return (
@@ -54,16 +78,53 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
         </div>
         <form onSubmit={handleSubmit} className="authForm modalForm">
           <input
+            name="fecha"
+            className="modalInput"
+            onChange={handleInputChange}
+            type="date"
+            placeholder="Fecha"
+            value={invest.fecha}
+            required
+          />
+          <input
+            name="entidad"
+            className="modalInput"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="Entidad"
+            value={invest.entidad}
+          />
+          <input
             name="empresa"
-            className="authInput"
+            className="modalInput"
             onChange={handleInputChange}
             type="text"
             placeholder="Empresa"
             value={invest.empresa}
           />
+          <select
+            onChange={handleInputChange}
+            className="modalInput modalSelect"
+            name="retornoInteres"
+            defaultValue={"Mensual"}
+            value={invest.retornoInteres}
+          >
+            <option value="Mensual">Mensual</option>
+            <option value="Final">Final</option>
+          </select>
+          <select
+            onChange={handleInputChange}
+            className="modalInput modalSelect"
+            name="retornoCapital"
+            defaultValue={"Mensual"}
+            value={invest.retornoCapital}
+          >
+            <option value="Mensual">Mensual</option>
+            <option value="Final">Final</option>
+          </select>
           <input
             name="capital"
-            className="authInput"
+            className="modalInput"
             onChange={handleInputChange}
             type="number"
             placeholder="Capital"
@@ -71,7 +132,7 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
           />
           <input
             name="t_anual"
-            className="authInput"
+            className="modalInput"
             onChange={handleInputChange}
             type="text"
             placeholder="Tasa Anual"
@@ -79,27 +140,11 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
           />
           <input
             name="periodo"
-            className="authInput"
+            className="modalInput"
             onChange={handleInputChange}
             type="text"
             placeholder="Periodo"
             value={invest.periodo}
-          />
-          <input
-            name="status"
-            className="authInput"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Status"
-            value={invest.status}
-          />
-          <input
-            name="i_mensual"
-            className="authInput"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Interes Mensual"
-            value={invest.i_mensual}
           />
           <div className="btn_container">
             {type === 2 ? (

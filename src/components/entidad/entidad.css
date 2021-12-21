@@ -1,12 +1,16 @@
 .entidad_container {
+  position: relative;
   width: 300px;
   height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid rgb(196, 190, 190, 2);
-  border-radius: 10px;
+  /* border: 1px solid rgb(196, 190, 190, 2); */
+  border: 0 solid transparent;
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  /* border-top:  25px solid red; */
+  border-radius: 0.25rem;
   overflow: hidden;
   transition: 0.5s;
   background-color: #fff;
@@ -26,6 +30,8 @@
 }
 .entidad_title {
   font-weight: 700;
+  display: flex;
+  align-items: center;
 }
 
 .sk_entidad_title,
@@ -52,9 +58,36 @@
   /* filter: ; */
 }
 
+.entidad_header_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.entidad_rate_container {
+  /* position: absolute; */
+  /* top: 5px;
+  left: 5px; */
+  /* border-radius: 10px; */
+  /* border-top-left-radius: 10px; */
+  /* border: 1px solid red; */
+  padding: 5px;
+  /* color: #fff;
+  background-color: black; */
+}
+
+.entidad_new_project_container {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 10px;
+  /* border-top-right-radius: 10px; */
+  background-color: rgb(236, 69, 69);
+  display: flex;
+  padding: 5px;
+  color: #fff;
+}
 
 /*==============CARD HORIZONTAL PARA SUGERENCIA==============*/
-
 
 .entidad_container_h {
   width: 100%;

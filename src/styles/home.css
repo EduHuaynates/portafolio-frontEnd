@@ -12,8 +12,16 @@
 }
 
 .main_investments {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 10px auto;
+}
+
+.main_content{
+  display: flex;
+  /* justify-content: space-between; */
+  /* width: 50%; */
+  /* flex-direction: column; */
+  
 }
 
 .main_title {
@@ -27,4 +35,5 @@
   padding: 10px 15px;
   margin: 15px 0px;
   cursor: pointer;
+  width: 150px;
 }

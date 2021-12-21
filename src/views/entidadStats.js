@@ -5,7 +5,7 @@ import Post from "../components/post/post";
 import Card from "../components/cards/card";
 import SimilarEntidad from "../components/entidad/similarEnts";
 import { Toaster, toast } from "react-hot-toast";
-// import { useLocation } from "react-router-dom";
+import NewProject from "../components/newProject/newProject";
 import Axios from "axios";
 
 async function getUnicaEntidad(id) {
@@ -131,18 +131,26 @@ export default function EntidadStats({ match, usuario }) {
         <div className="entidad_comments_container">
           <p className="entidadCommentTitle">CONSULTAS</p>
           <div className="entidad_comments">
-            <Post type={"NEW"} sendPost={sendPost} setLoad={setLoad} />
+            <Post
+              type={"NEW"}
+              sendPost={sendPost}
+              setLoad={setLoad}
+              usuario={usuario}
+            />
 
             {load
               ? ""
               : post.map((sp, key) => {
-                  return <Post post={sp} key={key} />;
+                  return <Post post={sp} key={key} usuario={usuario} />;
                 })}
           </div>
         </div>
       </main>
       <aside>
-        <div>Proyectos Nuevos</div>
+        <div className="newProjectList_Container">
+          <NewProject />
+          <NewProject />
+        </div>
 
         {load ? (
           <div className=""></div>

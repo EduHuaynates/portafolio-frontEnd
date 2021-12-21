@@ -28,32 +28,46 @@
   flex-direction: column;
 }
 
-
-.modal_header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+.modalInput {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
-.modal_title{
-    text-align: center;
+.modalInput:focus{
+  outline: 1px solid rgb(0,131,203);
 }
 
-.modal_close_container{
-    display: flex;
-    justify-content: right;
-    margin-bottom: 10px;
+.modalSelect{
+  outline: none;
 }
 
-.btn_container{
-    display: flex;
-    justify-content: space-between;
+.modal_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-.close_button{
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+.modal_title {
+  text-align: center;
+}
+
+.modal_close_container {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 10px;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close_button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 .modal_add_invest {
   border: none;

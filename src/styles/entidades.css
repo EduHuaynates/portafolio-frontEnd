@@ -36,3 +36,30 @@
   /* width: fit-content; */
   gap: 20px;
 }
+
+
+@media (max-width : 1600px) {
+  
+  .entidadesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    margin: auto;
+    margin-top: 20px;
+    /* width: fit-content; */
+    gap: 20px;
+  }
+}
+
+@media (max-width : 1250px) {
+  
+  .entidadesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    margin: auto;
+    margin-top: 20px;
+    /* width: fit-content; */
+    gap: 20px;
+  }
+}

@@ -1,8 +1,33 @@
 .statusRunning {
-  color: green;
+  background-color: rgba(80, 169, 164, 0.2);
+  color: rgb(80, 169, 164)  ;
+  padding: 5px;
+  border-radius: 5px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
   /* font-size: 50px; */
 }
 
 .statusWaiting {
-  color: rgb(232, 232, 14);
+  background-color: rgba(236, 228, 73, 0.2);
+  color: rgb(192, 186, 64);
+  padding: 5px;
+  border-radius: 5px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.statusDelayed {
+  background-color: rgba(199, 113, 113, 0.2);
+  color: rgb(199, 113, 113);;
+  padding: 5px;
+  border-radius: 5px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
 }

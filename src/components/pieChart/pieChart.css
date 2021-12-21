@@ -1,0 +1,15 @@
+.pieChart_Wrapper {
+  flex: 1;
+  height: 450px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.pieChart_pie_container {
+  width: 400px;
+  border: 0 solid transparent;
+  background-color: #fff;
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border-radius: 0.5rem;
+}

@@ -4,12 +4,28 @@
   margin-top: 25px;
 }
 
-.comment_body {
+.comment_header {
+  display: flex;
+  /* width: 100%; */
+  justify-content: space-between;
+  /* flex-direction: column; */
+}
+
+.comment_timeAgo {
+  color: rgb(101, 103, 107);
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.comment_main {
   background-color: #edf2f6;
   padding: 10px;
   border: none;
   border-radius: 5px;
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
@@ -38,8 +54,8 @@
   width: 100%;
 }
 
-[contentEditable=true]:empty:not(:focus):before{
-  content:attr(data-text)
+[contentEditable="true"]:empty:not(:focus):before {
+  content: attr(data-text);
 }
 
 .comment_new_reply:focus {

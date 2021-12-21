@@ -18,10 +18,6 @@
 .entidadStatsContainer {
   display: flex;
   flex-direction: column;
-
-  /* width: 0%; */
-  /* border: 1px solid blue;
-  border-radius: 5px; */
 }
 
 .entidad_stats_Kpis {
@@ -59,4 +55,8 @@
 .entidad_similar_titulo{
   font-weight: 700;
   font-size: 16px;
+}
+
+.newProjectList_Container{
+
 }
