@@ -1,15 +1,77 @@
 .pieChart_Wrapper {
-  flex: 1;
-  height: 450px;
-
-  display: flex;
-  justify-content: center;
+  padding: 20px;
+  width: 300px;
+  border: 0 solid transparent;
+  /* box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%); */
 }
 
-.pieChart_pie_container {
-  width: 400px;
+.pieChart_Title {
+  color: #939ba2;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.pieChart_Container {
+  /* display: flex; */
+  flex: 0.95;
+  align-items: center;
+  justify-content: center;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
+
+  /* height: 400px; */
+}
+
+.pieChart_Container2 {
+  /* display: flex; */
   border: 0 solid transparent;
   background-color: #fff;
   box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
   border-radius: 0.5rem;
+}
+
+.pieChart_Empresas_Container {
+  padding: 20px;
+  flex: 0.8;
+  border-top: 1px solid rgb(33 37 41 / 5%);
+  overflow-y: auto;
+  /* display: flex; */
+}
+
+.pieChart_Empresas_Wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+}
+
+.pieChart_Empresa_Left {
+  display: flex;
+  align-items: center;
+}
+
+.piechart_Empresa_circle {
+  margin-right: 10px;
+}
+
+.piechart_Empresa_circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+@media (max-width: 1100px) {
+  .pieChart_Container {
+    /* flex: 0.95; */
+    align-items: center;
+    justify-content: center;
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 1;
+  
+    /* height: 400px; */
+  }
+
+  .pieChart_Container2 {
+    display: flex;
+  }
 }

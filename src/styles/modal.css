@@ -13,7 +13,7 @@
 }
 
 .modal_invest_container {
-  width: 250px;
+  /* width: 250px; */
   /* height: 500px; */
   border-radius: 12px;
   background-color: white;
@@ -23,9 +23,16 @@
   padding: 25px;
 }
 
+.modal_main_content {
+  display: flex;
+}
+
 .modalForm {
   display: flex;
   flex-direction: column;
+  border-right: 1px solid rgba(17, 17, 22, 0.144);
+  padding-right: 20px;
+  padding-top: 15px;
 }
 
 .modalInput {
@@ -35,22 +42,26 @@
   border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
-.modalInput:focus{
-  outline: 1px solid rgb(0,131,203);
+.modalInput:focus {
+  outline: 1px solid rgb(0, 131, 203);
 }
 
-.modalSelect{
+.modalSelect {
   outline: none;
 }
 
 .modal_header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(17, 17, 22, 0.144);
 }
 
 .modal_title {
   text-align: center;
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .modal_close_container {
@@ -73,7 +84,7 @@
   border: none;
   width: 100%;
   border-radius: 0.25rem;
-  margin: 15px 5px;
+  margin: 15px 0px;
   padding: 10px 15px;
   cursor: pointer;
   color: white;
@@ -89,4 +100,14 @@
   color: white;
   padding: 10px 15px;
   background-color: rgb(238, 66, 66);
+}
+
+.inputTitle {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.investment_schedule_container {
+  width: auto;
+  padding-left: 20px;
 }

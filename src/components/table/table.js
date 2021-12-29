@@ -1,5 +1,5 @@
 import MUIDataTable from "mui-datatables";
-import { ThemeProvider, makeStyles } from "@mui/styles";
+import { ThemeProvider } from "@mui/styles";
 // import { createTheme } from "@mui/material/styles";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
@@ -14,45 +14,8 @@ export default function TablePortafolio({
   setModalData,
   setType,
 }) {
-  // const useStyles = makeStyles({
-  //   // MuiTableHead: {
-  //   //   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-  //   // },
-
-  //   MuiTableHead: {
-  //     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-  //   },
-  //   MUIDataTable: {
-  //     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-  //   },
-  // });
-
-  // const classes = useStyles();
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#006400",
-      },
-      secondary: {
-        main: "#ffa500",
-      },
-
-      // MUIDataTableSelectCell: {
-      //   expandDisabled: {
-      //     visibility: "hidden",
-      //   },
-      // },
-      // MuiTableHead: {
-      //   root: {
-      //     backgroundColor: "#F00",
-      // root:{
-      //   backgroundColor:"#F00"
-      // }
-      // },
-      // },
-    },
-  });
-
+  const theme = createTheme({});
+  // console.log(inv, "inv in tabe");
   const data = inv.map((i) => {
     return [
       // i.fecha,

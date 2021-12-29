@@ -1,0 +1,49 @@
+.react-calendar {
+  /* width: 650px; */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border: 0 solid transparent;
+}
+
+.react-calendar__tile--now {
+  border-radius: 50%;
+  background-color: rgb(195, 205, 211);
+}
+
+.highlight {
+  /* background-color: rgba(45, 178, 146, 0.91); */
+  background-color: rgba(54, 162, 235, 1) !important;
+  color: #fff;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  /* background-image: url('https://halifaxcomputers.co.uk/wp/wp-content/uploads/2015/08/circle.png');
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-color: transparent; */
+}
+
+/* .red {
+  background-color: rgba(210, 0, 0, 0.15);
+}
+.gren {
+  background-color: rgba(0, 256, 0, 0.15);
+}
+.blue {
+  background-color: rgba(0, 256, 216, 0.15);
+} */
+
+.calendar_Wrapper {
+  /* padding: 20px; */
+  /* margin-top: 20px; */
+  /* width: 700px; */
+  grid-column: span 2;
+  display: flex;
+  border: 0 solid transparent;
+  background-color: #fff;
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border-radius: 0.5rem;
+  position: relative;
+}

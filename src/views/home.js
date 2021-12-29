@@ -1,12 +1,14 @@
 import "../styles/home.css";
 // import NavBar from "../components/navBar/navBar";
 import Card from "../components/cards/card";
-import TablePortafolio from "../components/table/table";
+import PaymentCalendar from "../components/calendar/calendar";
+import moment from "moment";
+import TimeLine from "../components/timeLine/timeLine";
 import PieChart from "../components/pieChart/pieChart";
 import ModInvest from "./modInvest";
 import Axios from "axios";
 import { useEffect, useState } from "react";
-import RowTable from "../components/rowTable/rowTable";
+import Table2 from "../components/table/table2";
 
 async function getTotales(id) {
   const { data } = await Axios.get(`/api/invest/totales/${id}`);
@@ -35,7 +37,6 @@ export default function Home({ usuario }) {
         const { data } = await Axios.get(`/api/invest?user=${usuario._id}`);
         // console.log(data);
         setInv(data);
-
         try {
           const Tot = await getTotales(usuario._id);
           setTotales(Tot);
@@ -50,18 +51,13 @@ export default function Home({ usuario }) {
     loadInvest();
   }, [modal, usuario, load]);
 
-  // const reducer = (accumulator, curr) => accumulator + curr,0;
-
-  // console.log(
   const InversionTotal = totales
     .map(({ CapitalTotal }) => {
       return [CapitalTotal];
     })
     .reduce((accumulator, curr) => accumulator * 1 + curr * 1, 0 * 1);
-  // "ales"
-  // );
 
-  // const totales
+  const NroInversiones = inv.length;
 
   return (
     <>
@@ -91,7 +87,7 @@ export default function Home({ usuario }) {
             />
             <Card
               title={"# Inversiones Activas"}
-              kpi={"12"}
+              kpi={NroInversiones}
               color={`rgb(254, 247, 217)`}
               fontColor={`rgb(234, 207, 52)`}
               classIcon={`fas fa-chart-line`}
@@ -100,43 +96,47 @@ export default function Home({ usuario }) {
         </div>
 
         <div className="main_investments">
-          {/* <h1 className="main_title">Portafolio EH</h1> */}
-          <div >
-            <button
-              className="add_investment"
-              onClick={() => {
-                setModal(true);
-                setModalData({
-                  fecha: "",
-                  entidad: "",
-                  empresa: "",
-                  retornoInteres: "",
-                  retornoCapital: "",
-                  capital: "",
-                  t_anual: "",
-                  periodo: "",
-                });
-                setType(1);
-              }}
-            >
-              Agregar Inversion
-            </button>
-            <div className="main_content">
-              <TablePortafolio
-                inv={inv}
-                closeModal={setModal}
-                setModalData={setModalData}
-                setType={setType}
-              />
-              {/* <RowTable
-                inv={inv}
-                closeModal={setModal}
-                setModalData={setModalData}
-                setType={setType}
-              /> */}
-              <PieChart tot={totales} />
-            </div>
+          <div className="main_content">
+            {/* <div className="main_table_container"> */}
+              <div className="main_table_wrapper">
+                <div className="main_table_header">
+                  <p className="main_table_title"> Portafolio</p>
+                  <button
+                    className="add_investment"
+                    onClick={() => {
+                      setModal(true);
+                      setModalData({
+                        fecha: "",
+                        entidad: "",
+                        empresa: "",
+                        retornoInteres: "",
+                        retornoCapital: "",
+                        capital: "",
+                        t_anual: "",
+                        periodo: "",
+                        schedule: [],
+                      });
+                      setType(1);
+                    }}
+                  >
+                    Agregar Inversion
+                  </button>
+                </div>
+                <div className="main_table_body">
+                  <Table2
+                    inv={inv}
+                    closeModal={setModal}
+                    setModalData={setModalData}
+                    setType={setType}
+                  />
+                </div>
+              </div>
+              <PaymentCalendar paymentDays={inv} />
+              {/* <TimeLine /> */}
+            {/* </div> */}
+            <PieChart tot={totales} />
           </div>
+          {/* </div> */}
         </div>
       </main>
       {/* <Outlet /> */}

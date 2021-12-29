@@ -2,9 +2,9 @@ import "./statusBadge.css";
 export default function StatusBadge({ status }) {
   return (
     <>
-      {status == "Completado" && <p className="statusRunning"> Completado </p>}
-      {status === "En Marcha" && <p className="statusWaiting"> En Marcha</p>}
-      {status === "Retraso" && <p className="statusDelayed"> Retraso</p>}
+      {status == "Pendiente" && <p className="statusPendiente"> Pendiente </p>}
+      {status === "Pagado" && <p className="statusPagado"> Pagado</p>}
+      {status === "Vencido" && <p className="statusVencido"> Vencido</p>}
     </>
   );
 }

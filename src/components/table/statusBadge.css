@@ -1,8 +1,9 @@
-.statusRunning {
-  background-color: rgba(80, 169, 164, 0.2);
-  color: rgb(80, 169, 164)  ;
-  padding: 5px;
-  border-radius: 5px;
+.statusPendiente {
+  /* background-color: rgba(80, 169, 164, 0.2); */
+  border: 1px solid #bf8700;
+  color: #bf8700;
+  /* padding: 5px; */
+  border-radius: 10px;
   width: 80px;
   display: flex;
   justify-content: center;
@@ -10,22 +11,24 @@
   /* font-size: 50px; */
 }
 
-.statusWaiting {
-  background-color: rgba(236, 228, 73, 0.2);
-  color: rgb(192, 186, 64);
-  padding: 5px;
-  border-radius: 5px;
+.statusPagado {
+  border: 1px solid #2da44e;
+  /* background-color: #2DA44E; */
+  color: #2da44e;
+  /* padding: 5px; */
+  border-radius: 10px;
   width: 80px;
   display: flex;
   justify-content: center;
   font-weight: 600;
 }
 
-.statusDelayed {
-  background-color: rgba(199, 113, 113, 0.2);
-  color: rgb(199, 113, 113);;
-  padding: 5px;
-  border-radius: 5px;
+.statusVencido {
+  /* background-color: rgba(199, 113, 113, 0.2); */
+  border: 1px solid #CF222E;
+  color: #CF222E;
+  /* padding: 5px; */
+  border-radius: 10px;
   width: 80px;
   display: flex;
   justify-content: center;

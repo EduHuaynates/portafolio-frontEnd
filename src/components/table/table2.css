@@ -1,0 +1,56 @@
+.table_even_class {
+  background-color: #eeeeee;
+}
+
+.table-edit-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+table,
+tr {
+  height: 40px;
+  font-size: 14px;
+  margin: 0;
+  width: 100%;
+
+}
+
+table {
+  border: rgba(17, 17, 22, 0.144);
+  border-radius: 10px;
+  border-collapse: collapse;
+  /* border-spacing: 2px 2px; */
+  overflow: hidden;
+}
+
+thead {
+  background-color: #36304a;
+  color: #f2ffff;
+  /* border-radius: 10px; */
+}
+
+thead th {
+  padding: 5px 20px;
+}
+
+tbody td {
+  padding: 0 20px;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(17, 17, 22, 0.144);
+}
+
+.input_fecha_pago_real {
+  border-color: #fdfdfd;
+  border-radius: 10px;
+  padding: 0 5px;
+  outline: none;
+}
+
+/* ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+  color: transparent;
+} */
