@@ -1,4 +1,5 @@
 import { RequiredFields } from "../utils/Error/schedule.error";
+const moment = require("moment");
 
 function createSchedule(
   capital,
@@ -9,7 +10,7 @@ function createSchedule(
   date
 ) {
   const schedule = new Array(periodo);
-
+  console.log(date, "dateSchedule");
   const dt = new Date(date);
 
   if (capital && periodo && tasa && retornoInteres && retornoCapital && date) {
@@ -26,8 +27,12 @@ function createSchedule(
             Saldo: capital - (capital * (i + 1)) / periodo,
             Status: "Pendiente",
             FechaPago: new Date(
-              dt.setMonth(dt.getMonth() + 1)
+              moment(date, "YYYY-MM-DD").add(i + 1, "months")
             ).toLocaleDateString("es-ES"),
+
+            // new Date(dt.setMonth(dt.getMonth() + 1)).toLocaleDateString(
+            //   "es-ES"
+            // ),
 
             //Date: dt.toLocaleDateString("en-US"),
           };
@@ -43,8 +48,11 @@ function createSchedule(
             Saldo: capital - (i == periodo - 1 ? capital : 0),
             Status: "Pendiente",
             FechaPago: new Date(
-              dt.setMonth(dt.getMonth() + 1)
+              moment(date, "YYYY-MM-DD").add(i + 1, "months")
             ).toLocaleDateString("es-ES"),
+            // FechaPago: new Date(
+            //   dt.setMonth(dt.getMonth() + 1)
+            // ).toLocaleDateString("es-ES"),
           };
         }
         break;
@@ -61,8 +69,11 @@ function createSchedule(
             Saldo: capital - (i == periodo - 1 ? capital : 0),
             Status: "Pendiente",
             FechaPago: new Date(
-              dt.setMonth(dt.getMonth() + 1)
+              moment(date, "YYYY-MM-DD").add(i + 1, "months")
             ).toLocaleDateString("es-ES"),
+            // FechaPago: new Date(
+            //   dt.setMonth(dt.getMonth() + 1)
+            // ).toLocaleDateString("es-ES"),
           };
         }
         break;
@@ -74,6 +85,4 @@ function createSchedule(
 }
 
 export default createSchedule;
-// console.log(
-//   createSchedule(25000, 4, 0.03, "Final", "Final", "2021-12-12")
-// );
+// console.log(createSchedule(25000, 4, 0.03, "Mensual", "Mensual", "2021-12-30"));

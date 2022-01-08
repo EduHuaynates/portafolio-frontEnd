@@ -1,27 +1,45 @@
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 .resume_container {
-  background-color: #fafafa;
-  padding: 80px 0 30px 0;
+  /* background-color: #fafafa; */
+  border-radius: 0.5rem;
+  /* padding: 20px; */
+  /* box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%); */
+  grid-column: span 2;
+  /* padding: 80px 0 30px 0; */
 }
 
 .main_resume {
-  margin: 0 auto;
-  max-width: 1000px;
+  /* margin: 0 auto; */
+  /* max-width: 1000px; */
+  grid-template-columns: span 2;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* justify-content: space-between; */
+}
+
+.main_user_welcome {
+  margin: 20px 0px;
 }
 
 .main_investments {
   /* max-width: 1200px; */
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1rem;
   /* margin: 10px auto; */
 }
 
 .main_content {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, 350px);
+  /* grid-template-columns: repeat(3, 350px); */
+  grid-template-columns: repeat(12, 1fr);
   /* flex-wrap: wrap; */
 }
 
@@ -40,7 +58,7 @@
   border-radius: 0.5rem;
   padding: 5px 20px 15px 20px;
   /* margin-bottom: 25px; */
-  grid-column: span 2;
+  grid-column: span 6;
 }
 
 .main_table_title {
@@ -72,6 +90,7 @@
   border-radius: 0.25rem;
   border: none;
   background-color: rgb(45, 178, 146);
+  /* background-color: var(--primary600); */
   color: white;
   padding: 10px 15px;
   margin: 10px 0px;

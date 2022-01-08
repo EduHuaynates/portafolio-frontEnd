@@ -1,12 +1,13 @@
 import "./navBar.css";
 import { Link } from "react-router-dom";
+import { ReactComponent as Logo_Solo_Ico } from "../../icons/Logo_Solo_Ico.svg";
 
 export default function navBar({ usuario }) {
   return (
     <nav className="navBar_container">
       <div className="logo_container">
-        <i className="fas fa-map-marker-alt"></i>
-        GPS
+        {/* <i className="fas fa-map-marker-alt"></i> */}
+        <Logo_Solo_Ico className="Logo"/>
       </div>
 
       <div className="options_container">

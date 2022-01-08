@@ -8,12 +8,13 @@
 
 .react-calendar__tile--now {
   border-radius: 50%;
-  background-color: rgb(195, 205, 211);
+  background-color: var(--neutral400);
 }
 
 .highlight {
   /* background-color: rgba(45, 178, 146, 0.91); */
-  background-color: rgba(54, 162, 235, 1) !important;
+  /* background-color: rgba(54, 162, 235, 1) !important; */
+  background-color: var(--secondary500) !important;
   color: #fff;
   border-radius: 50%;
   aspect-ratio: 1/1;
@@ -39,7 +40,7 @@
   /* padding: 20px; */
   /* margin-top: 20px; */
   /* width: 700px; */
-  grid-column: span 2;
+  grid-column: span 5;
   display: flex;
   border: 0 solid transparent;
   background-color: #fff;

@@ -1,5 +1,49 @@
+:root {
+  /* PRIMARY COLORS */
+  --primary700: #271fe0;
+  --primary600: #4945ff;
+  --primary500: #7b79ff;
+  --primary200: #d9d8ff;
+  --primary100: #f0f0ff;
+
+  /* SECONDARY COLORS */
+  --secondary700: #006096;
+  --secondary600: #0c75af;
+  --secondary500: #66b7f1;
+  --secondary200: #b8e1ff;
+  --secondary100: #eaf5ff;
+
+  /* SUCCESS COLORS */
+  --success700: #2f6846;
+  --success600: #328048;
+  --success500: #5cb176;
+  --success200: #c6f0c2;
+  --success100: #eafbe7;
+
+  /* DANGER COLORS */
+  --danger700: #b72b1a;
+  --danger600: #d02b20;
+  --danger500: #ee5e52;
+  --danger200: #f5c0b8;
+  --danger100: #fcecea;
+
+  /* NEUTRAL COLORS */
+  --neutral900: #212134;
+  --neutral800: #32324d;
+  --neutral700: #4a4a6a;
+  --neutral600: #666687;
+  --neutral500: #8e8ea9;
+  --neutral400: #a5a5ba;
+  --neutral300: #c0c0cf;
+  --neutral200: #dcdce4;
+  --neutral150: #eaeaef;
+  --neutral100: #f6f6f9;
+  --neutral0: #FFF;
+}
+
 * {
   margin: 0;
+  padding: 0;
 }
 body {
   background-color: rgb(241, 243, 247);
@@ -13,6 +57,14 @@ body {
 
 .icon {
   margin-right: 10px;
+  width: 25px;
+}
+
+.LoginRoutesContainer {
+  /* margin-top: 60px; */
+  display: grid;
+  grid-template-columns: minmax(270px, 10%) 1fr;
+  /* gap: 10px; */
 }
 /* 
 ::-webkit-scrollbar {

@@ -15,18 +15,19 @@
   flex: 0.95;
   align-items: center;
   justify-content: center;
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 2;
+  grid-column: span 5;
+  /* grid-row: 2 / span 2; */
 
   /* height: 400px; */
 }
 
 .pieChart_Container2 {
-  /* display: flex; */
+  display: flex;
   border: 0 solid transparent;
   background-color: #fff;
   box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
   border-radius: 0.5rem;
+  height: 100%;
 }
 
 .pieChart_Empresas_Container {

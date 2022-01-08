@@ -4,6 +4,7 @@ import Login from "./views/login";
 import Signup from "./views/signup";
 import Error from "./components/error/Error";
 import NavBar from "./components/navBar/navBar";
+import SideBar from "./components/sidebar/sidebar";
 import Entidades from "./views/entidades";
 import EntidadStats from "./views/entidadStats";
 import "./App.css";
@@ -84,10 +85,17 @@ export default function App() {
 
   return (
     <Router>
-      <NavBar usuario={usuario} />
+      {/* <NavBar usuario={usuario} /> */}
       <Error message={error} hideError={hideError} />
       {usuario ? (
-        <LoginRoutes showError={showError} logout={logout} usuario={usuario} />
+        <div className="LoginRoutesContainer">
+          <SideBar />
+          <LoginRoutes
+            showError={showError}
+            logout={logout}
+            usuario={usuario}
+          />
+        </div>
       ) : (
         <LogoutRoutes login={login} signup={signup} showError={showError} />
       )}

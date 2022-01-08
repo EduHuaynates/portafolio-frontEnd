@@ -4,11 +4,12 @@
   display: flex;
   flex-direction: column;
   border: none;
-  /* background-color: rgb(48, 74, 160); */
-  margin: 0 10px;
+  width: auto;
+  background-color: var(--neutral0);
+  /* margin: 0 10px; */
 }
 
-.cardHeadContainer{
+.cardHeadContainer {
   display: flex;
   justify-content: center;
   align-items: center;

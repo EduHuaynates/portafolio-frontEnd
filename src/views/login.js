@@ -2,7 +2,8 @@ import "../styles/form.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
-import img from "../images/investment.jpg";
+import { ReactComponent as LoginImage } from "../icons/login.svg";
+import { ReactComponent as Logo_Solo_Ico } from "../icons/Logo_Solo_Ico.svg";
 
 export default function Login({ showError, login }) {
   const [user, setUser] = useState({
@@ -40,15 +41,20 @@ export default function Login({ showError, login }) {
   }
   return (
     <div className="authPage">
-      <div className="authContainer">
-        {/* <div className="authImageContainer">
+      <div className="authImageContainer">
+        <LoginImage />
+      </div>
+      <div className="authWrapper">
+        <div className="authContainer">
+          {/* <div className="authImageContainer">
           <img src={img} alt="logo" />
         </div> */}
-        {/* <div className="authMainContainer"> */}
-          <h5 className="authTitle"> Login to Portafolio</h5>
+          {/* <div className="authMainContainer"> */}
+          <Logo_Solo_Ico />
+          <h3 className="authTitle"> Sign In</h3>
           <form className="authForm" onSubmit={handleSubmit}>
             <div className="inputContainer">
-              <i className="fas fa-user icon"></i>
+              <i className="fas fa-envelope icon"></i>
               <input
                 name="username"
                 className="authInput"
@@ -67,16 +73,22 @@ export default function Login({ showError, login }) {
                 placeholder="Password"
               />
             </div>
-            <button className="authSubmit" type="submit">
-              Login
-            </button>
+            <div className="authBtnWraper">
+              <button className="authSubmit" type="submit">
+                Login
+              </button>
+              <Link to="/signup">
+                <button className="authSignup">Crear Cuenta</button>
+              </Link>
+            </div>
           </form>
 
-          <p className="authp">
+          {/* <p className="authp">
             Dont you have an account? <Link to="/signup">Sign Up</Link> Now
           </p>
-          <p className="authp"> Create an account </p>
-        {/* </div> */}
+          <p className="authp"> Create an account </p> */}
+          {/* </div> */}
+        </div>
       </div>
       <Toaster position="top-left" />
     </div>

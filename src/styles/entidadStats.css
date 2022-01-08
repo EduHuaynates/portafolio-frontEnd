@@ -3,8 +3,8 @@
   display: grid;
   grid-template-rows: 100vh auto;
   grid-template-columns: 1fr 3fr 1fr;
-  gap: 25px;
-  padding: 80px 5%;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 0 ;
 }
 
 .entidadInfoContainer {
@@ -39,7 +39,9 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
-  border: 1px solid rgb(196, 190, 190, 2);
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border: 0 solid transparent;
+  /* border: 1px solid rgb(196, 190, 190, 2); */
   border-radius: 5px;
   margin-bottom: 20px;
 }
@@ -47,7 +49,9 @@
 
 .entidad_similar_container{
   padding: 10px;
-  border: 1px solid rgb(196, 190, 190, 2);
+  /* border: 1px solid rgb(196, 190, 190, 2); */
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border: 0 solid transparent;
   border-radius: 10px;
   background-color: #fff;
 }

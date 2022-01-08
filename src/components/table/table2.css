@@ -1,5 +1,6 @@
 .table_even_class {
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
+  background-color: var(--neutral100);
 }
 
 .table-edit-btn {
@@ -13,11 +14,11 @@ tr {
   font-size: 14px;
   margin: 0;
   width: 100%;
-
 }
 
 table {
   border: rgba(17, 17, 22, 0.144);
+  /* border: var(--neutral100); */
   border-radius: 10px;
   border-collapse: collapse;
   /* border-spacing: 2px 2px; */
@@ -25,7 +26,8 @@ table {
 }
 
 thead {
-  background-color: #36304a;
+  /* background-color: #36304a; */
+  background-color: var(--neutral900);
   color: #f2ffff;
   /* border-radius: 10px; */
 }
@@ -39,7 +41,8 @@ tbody td {
 }
 
 tbody tr {
-  border-bottom: 1px solid rgba(17, 17, 22, 0.144);
+  /* border-bottom: 1px solid rgba(17, 17, 22, 0.144); */
+  border-bottom: 1px solid var(--neutral200);
 }
 
 .input_fecha_pago_real {

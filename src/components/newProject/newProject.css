@@ -1,10 +1,12 @@
 .newProject_Wrapper {
-  border: 1px solid rgb(196, 190, 190, 2);
+  /* border: 1px solid rgb(196, 190, 190, 2); */
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border: 0 solid transparent;
   border-radius: 10px;
   margin-bottom: 20px;
   padding: 10px 10px 0px 10px;
   background-color: #fff;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
 }
 
 .newAlert {

@@ -2,9 +2,8 @@ import "../styles/home.css";
 // import NavBar from "../components/navBar/navBar";
 import Card from "../components/cards/card";
 import PaymentCalendar from "../components/calendar/calendar";
-import moment from "moment";
-import TimeLine from "../components/timeLine/timeLine";
 import PieChart from "../components/pieChart/pieChart";
+import BarChart from "../components/barchart/barchart";
 import ModInvest from "./modInvest";
 import Axios from "axios";
 import { useEffect, useState } from "react";
@@ -35,7 +34,7 @@ export default function Home({ usuario }) {
     async function loadInvest() {
       try {
         const { data } = await Axios.get(`/api/invest?user=${usuario._id}`);
-        // console.log(data);
+        console.log(data, "Inversiones");
         setInv(data);
         try {
           const Tot = await getTotales(usuario._id);
@@ -62,79 +61,82 @@ export default function Home({ usuario }) {
   return (
     <>
       <main className="main">
-        <div className="resume_container">
-          <div className="main_resume">
-            <Card
-              title={"Capital Invertido"}
-              kpi={`${InversionTotal} S/.`}
-              color={`rgb(214, 232, 245)`}
-              fontColor={`rgb(40, 152, 233)`}
-              classIcon={`fas fa-hand-holding-usd`}
-            />
-            {/* <Card
-              title={"Interes Total"}
-              kpi={"15,000 S/."}
-              color={`rgb(254, 231, 218)`}
-              fontColor={`rgb(239, 121, 46)`}
-              classIcon={`fas fa-piggy-bank`}
-            /> */}
-            <Card
-              title={"Interes Promedio"}
-              kpi={"19.77%"}
-              color={`rgb(240, 221, 255)`}
-              fontColor={`rgb(141, 29, 235)`}
-              classIcon={`fas fa-percentage`}
-            />
-            <Card
-              title={"# Inversiones Activas"}
-              kpi={NroInversiones}
-              color={`rgb(254, 247, 217)`}
-              fontColor={`rgb(234, 207, 52)`}
-              classIcon={`fas fa-chart-line`}
-            />
-          </div>
-        </div>
-
         <div className="main_investments">
+          <h2 className="main_user_welcome">Bienvenido Educito !</h2>
           <div className="main_content">
-            {/* <div className="main_table_container"> */}
-              <div className="main_table_wrapper">
-                <div className="main_table_header">
-                  <p className="main_table_title"> Portafolio</p>
-                  <button
-                    className="add_investment"
-                    onClick={() => {
-                      setModal(true);
-                      setModalData({
-                        fecha: "",
-                        entidad: "",
-                        empresa: "",
-                        retornoInteres: "",
-                        retornoCapital: "",
-                        capital: "",
-                        t_anual: "",
-                        periodo: "",
-                        schedule: [],
-                      });
-                      setType(1);
-                    }}
-                  >
-                    Agregar Inversion
-                  </button>
-                </div>
-                <div className="main_table_body">
-                  <Table2
-                    inv={inv}
-                    closeModal={setModal}
-                    setModalData={setModalData}
-                    setType={setType}
-                  />
-                </div>
+            <div className="resume_container">
+              <div className="main_resume">
+                <Card
+                  title={"Capital Invertido"}
+                  kpi={`${InversionTotal} S/.`}
+                  color={`rgb(214, 232, 245)`}
+                  fontColor={`rgb(40, 152, 233)`}
+                  classIcon={`fas fa-hand-holding-usd`}
+                />
+                <Card
+                  title={"Interes Total"}
+                  kpi={"15,000 S/."}
+                  color={`rgb(254, 231, 218)`}
+                  fontColor={`rgb(239, 121, 46)`}
+                  classIcon={`fas fa-piggy-bank`}
+                />
+                <Card
+                  title={"Interes Promedio"}
+                  kpi={"19.77%"}
+                  color={`rgb(240, 221, 255)`}
+                  fontColor={`rgb(141, 29, 235)`}
+                  classIcon={`fas fa-percentage`}
+                />
+                <Card
+                  title={"# Inversiones Activas"}
+                  kpi={NroInversiones}
+                  color={`rgb(254, 247, 217)`}
+                  fontColor={`rgb(234, 207, 52)`}
+                  classIcon={`fas fa-chart-line`}
+                />
               </div>
-              <PaymentCalendar paymentDays={inv} />
-              {/* <TimeLine /> */}
-            {/* </div> */}
+            </div>
+            {/* <div className="main_table_container"> */}
             <PieChart tot={totales} />
+            <PaymentCalendar paymentDays={inv} />
+
+            <div className="main_table_wrapper">
+              <div className="main_table_header">
+                <p className="main_table_title"> Portafolio</p>
+                <button
+                  className="add_investment"
+                  onClick={() => {
+                    setModal(true);
+                    setModalData({
+                      fecha: "",
+                      entidad: "",
+                      empresa: "",
+                      retornoInteres: "",
+                      retornoCapital: "",
+                      capital: "",
+                      t_anual: "",
+                      periodo: "",
+                      schedule: [],
+                    });
+                    setType(1);
+                  }}
+                >
+                  Agregar Inversion
+                </button>
+              </div>
+              <div className="main_table_body">
+                <Table2
+                  inv={inv}
+                  closeModal={setModal}
+                  setModalData={setModalData}
+                  setType={setType}
+                />
+              </div>
+            </div>
+            <BarChart barChartData={inv} />
+
+            {/* <TimeLine /> */}
+            {/* </div> */}
           </div>
           {/* </div> */}
         </div>

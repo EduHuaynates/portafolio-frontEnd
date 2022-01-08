@@ -2,7 +2,9 @@
   max-width: 350px;
   padding: 15px;
   background-color: #fff;
-  border: 1px solid rgb(196, 190, 190, 2);
+  /* border: 1px solid rgb(196, 190, 190, 2); */
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border: 0 solid transparent;
   border-radius: 5px;
 }
 
