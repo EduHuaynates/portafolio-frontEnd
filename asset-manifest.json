@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/portafolio-frontEnd/static/css/main.c850aa5d.chunk.css",
+    "main.js": "/portafolio-frontEnd/static/js/main.7a3a94d5.chunk.js",
+    "main.js.map": "/portafolio-frontEnd/static/js/main.7a3a94d5.chunk.js.map",
+    "runtime-main.js": "/portafolio-frontEnd/static/js/runtime-main.de8ab0f4.js",
+    "runtime-main.js.map": "/portafolio-frontEnd/static/js/runtime-main.de8ab0f4.js.map",
+    "static/css/2.f10f449b.chunk.css": "/portafolio-frontEnd/static/css/2.f10f449b.chunk.css",
+    "static/js/2.4e640aa9.chunk.js": "/portafolio-frontEnd/static/js/2.4e640aa9.chunk.js",
+    "static/js/2.4e640aa9.chunk.js.map": "/portafolio-frontEnd/static/js/2.4e640aa9.chunk.js.map",
+    "index.html": "/portafolio-frontEnd/index.html",
+    "static/css/2.f10f449b.chunk.css.map": "/portafolio-frontEnd/static/css/2.f10f449b.chunk.css.map",
+    "static/css/main.c850aa5d.chunk.css.map": "/portafolio-frontEnd/static/css/main.c850aa5d.chunk.css.map",
+    "static/js/2.4e640aa9.chunk.js.LICENSE.txt": "/portafolio-frontEnd/static/js/2.4e640aa9.chunk.js.LICENSE.txt",
+    "static/media/Logo_Solo_Ico.d12f1581.svg": "/portafolio-frontEnd/static/media/Logo_Solo_Ico.d12f1581.svg",
+    "static/media/bx-cabinet.25a946a3.svg": "/portafolio-frontEnd/static/media/bx-cabinet.25a946a3.svg",
+    "static/media/bx-cube-alt.5746d8f6.svg": "/portafolio-frontEnd/static/media/bx-cube-alt.5746d8f6.svg",
+    "static/media/bx-scatter-chart.a682cbfb.svg": "/portafolio-frontEnd/static/media/bx-scatter-chart.a682cbfb.svg",
+    "static/media/bxs-business.d41a89ec.svg": "/portafolio-frontEnd/static/media/bxs-business.d41a89ec.svg",
+    "static/media/bxs-dashboard.1da4f305.svg": "/portafolio-frontEnd/static/media/bxs-dashboard.1da4f305.svg",
+    "static/media/bxs-folder-plus.c9f72954.svg": "/portafolio-frontEnd/static/media/bxs-folder-plus.c9f72954.svg",
+    "static/media/bxs-star.b83b981c.svg": "/portafolio-frontEnd/static/media/bxs-star.b83b981c.svg",
+    "static/media/bxs-wallet.75943c5c.svg": "/portafolio-frontEnd/static/media/bxs-wallet.75943c5c.svg",
+    "static/media/login.6feb3987.svg": "/portafolio-frontEnd/static/media/login.6feb3987.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.de8ab0f4.js",
+    "static/css/2.f10f449b.chunk.css",
+    "static/js/2.4e640aa9.chunk.js",
+    "static/css/main.c850aa5d.chunk.css",
+    "static/js/main.7a3a94d5.chunk.js"
+  ]
+}
