@@ -1,6 +1,11 @@
+// STYLES
 import "./post.css";
-import Comment from "../comment/comment";
+
+// HOOKS
 import { useState, useEffect } from "react";
+
+//COMPONENTS
+import Comment from "../comment/comment";
 import Moment from "react-moment";
 import Axios from "axios";
 import { Toaster, toast } from "react-hot-toast";

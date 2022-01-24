@@ -11,7 +11,7 @@ function createSchedule(
 ) {
   const schedule = new Array(periodo);
   console.log(date, "dateSchedule");
-  const dt = new Date(date);
+  // const dt = new Date(date);
 
   if (capital && periodo && tasa && retornoInteres && retornoCapital && date) {
     switch (retornoInteres + retornoCapital) {
@@ -42,10 +42,10 @@ function createSchedule(
         for (var i = 0; i < periodo; i++) {
           schedule[i] = {
             Periodo: i + 1,
-            CapitalRetornado: i == periodo - 1 ? capital : 0,
+            CapitalRetornado: i === periodo - 1 ? capital : 0,
             InteresRetornado: (capital * tasa) / 12,
-            Cuota: (i == periodo - 1 ? capital : 0) + (capital * tasa) / 12,
-            Saldo: capital - (i == periodo - 1 ? capital : 0),
+            Cuota: (i === periodo - 1 ? capital : 0) + (capital * tasa) / 12,
+            Saldo: capital - (i === periodo - 1 ? capital : 0),
             Status: "Pendiente",
             FechaPago: new Date(
               moment(date, "YYYY-MM-DD").add(i + 1, "months")
@@ -60,13 +60,13 @@ function createSchedule(
         for (var i = 0; i < periodo; i++) {
           schedule[i] = {
             Periodo: i + 1,
-            CapitalRetornado: i == periodo - 1 ? capital * 1 : 0,
+            CapitalRetornado: i === periodo - 1 ? capital * 1 : 0,
             InteresRetornado:
-              i == periodo - 1 ? (capital * tasa * (i + 1)) / 12 : 0,
+              i === periodo - 1 ? (capital * tasa * (i + 1)) / 12 : 0,
             Cuota:
-              (i == periodo - 1 ? capital * 1 : 0) +
-              (i == periodo - 1 ? (capital * tasa * (i + 1)) / 12 : 0),
-            Saldo: capital - (i == periodo - 1 ? capital : 0),
+              (i === periodo - 1 ? capital * 1 : 0) +
+              (i === periodo - 1 ? (capital * tasa * (i + 1)) / 12 : 0),
+            Saldo: capital - (i === periodo - 1 ? capital : 0),
             Status: "Pendiente",
             FechaPago: new Date(
               moment(date, "YYYY-MM-DD").add(i + 1, "months")

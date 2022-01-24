@@ -1,31 +1,44 @@
+// STYLES
 import "../styles/entidadStats.css";
+
+// HOOKS
 import { useEffect, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
+
+// COMPONENTS
 import EntidadAllInfo from "../components/entidad/entidadAllInfo";
 import Post from "../components/post/post";
 import Card from "../components/cards/card";
 import SimilarEntidad from "../components/entidad/similarEnts";
-import { Toaster, toast } from "react-hot-toast";
 import NewProject from "../components/newProject/newProject";
-import Axios from "axios";
 
-async function getUnicaEntidad(id) {
-  const { data } = await Axios.get(`/api/entitie/${id}`);
-  return data;
-}
+// UTILS
+import {
+  getUnicaEntidad,
+  getSimilarEntidad,
+  getPosts,
+  sendPostAPI,
+} from "../utils/apiCalls";
 
-async function getSimilarEntidad(TipoInversion, id) {
-  const { data } = await Axios.get(`/api/entitie/similar/${id}`, {
-    params: { TipoInversion },
-  });
-  return data;
-}
 
-async function getPosts(Entitie) {
-  const { data } = await Axios.get(`/api/post/${Entitie}`, {
-    params: { Entitie },
-  });
-  return data;
-}
+// async function getUnicaEntidad(id) {
+//   const { data } = await Axios.get(`/api/entitie/${id}`);
+//   return data;
+// }
+
+// async function getSimilarEntidad(TipoInversion, id) {
+//   const { data } = await Axios.get(`/api/entitie/similar/${id}`, {
+//     params: { TipoInversion },
+//   });
+//   return data;
+// }
+
+// async function getPosts(Entitie) {
+//   const { data } = await Axios.get(`/api/post/${Entitie}`, {
+//     params: { Entitie },
+//   });
+//   return data;
+// }
 
 export default function EntidadStats({ match, usuario }) {
   const [singleEnt, setSingleEnt] = useState(null);
@@ -44,45 +57,89 @@ export default function EntidadStats({ match, usuario }) {
   };
 
   async function sendPost(message) {
-    const Promise = Axios.post(`/api/post/`, {
-      Message: message,
-      Entitie: entID,
-      User: usuario._id,
-    });
+    const Promise = sendPostAPI(message, entID, usuario._id);
+    // Axios.post(`/api/post/`, {
+    //   Message: message,
+    //   Entitie: entID,
+    //   User: usuario._id,
+    // });
     notify(Promise);
     setCargarPost(() => cargarPost + 1);
   }
 
   useEffect(() => {
-    const getEntidad = async () => {
-      try {
-        const entidadNueva = await getUnicaEntidad(entID);
-        setSingleEnt(entidadNueva);
-        try {
-          const similarEntidad = await getSimilarEntidad(
-            entidadNueva.TipoInversion,
-            entID
-          );
-          setSimilarEnt(similarEntidad);
+    // getUnicaEntidad(entID)
+    //   .then((entAPI) => {
+    //     setSingleEnt(entAPI);
+    //     return entAPI;
+    //   })
+    //   .then((entAPI) => {
+    //     getSimilarEntidad(entAPI.TipoInversion, entID).then(
+    //       (similarEntidad) => {
+    //         console.log(similarEntidad, "entAPI");
+    //         setSimilarEnt(similarEntidad);
+    //       }
+    //     );
+    //   })
+    //   .then(() => {
+    //     getPosts(entID).then((postFeed) => {
+    //       setPost(postFeed);
+    //       setLoad(false);
+    //     });
+    //   });
 
-          try {
-            const postFeed = await getPosts(entID);
-            setPost(postFeed);
-            setLoad(false);
-          } catch (error) {
-            console.log(error, "Error Post Feed");
-          }
-        } catch (error) {
-          console.log(error, "errortipo");
-        }
-        // console.log(entidadNueva, "entidad Nueva");
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    const EntPostAPI = Promise.all([getUnicaEntidad(entID), getPosts(entID)]);
 
-    getEntidad();
-  }, [entID, cargarPost]);
+    EntPostAPI.then((values) => {
+      const [entAPI, postAPI] = values;
+      setSingleEnt(entAPI);
+      setPost(postAPI);
+      return entAPI;
+    }).then((entAPI) => {
+      const SimEntAPI = Promise.all([
+        getSimilarEntidad(entAPI.TipoInversion, entID),
+      ]);
+      SimEntAPI.then((value) => {
+        const [similarEntAPI] = value;
+        setSimilarEnt(similarEntAPI);
+        setLoad(false);
+      });
+    });
+
+    // singleEntAPI.then((values) => {
+    //   const [entAPI, similarEntAPI, postAPI] = values;
+    //   setSingleEnt(entAPI);
+    //   setSimilarEnt(similarEntAPI);
+    //   setPost(postAPI);
+    //   setLoad(false);
+    // });
+    // const getEntidad = async () => {
+    //   try {
+    //     const entidadNueva = await getUnicaEntidad(entID);
+    //     setSingleEnt(entidadNueva);
+    //     try {
+    //       const similarEntidad = await getSimilarEntidad(
+    //         entidadNueva.TipoInversion,
+    //         entID
+    //       );
+    //       setSimilarEnt(similarEntidad);
+    //       try {
+    //         const postFeed = await getPosts(entID);
+    //         setPost(postFeed);
+    //         setLoad(false);
+    //       } catch (error) {
+    //         console.log(error, "Error Post Feed");
+    //       }
+    //     } catch (error) {
+    //       console.log(error, "errortipo");
+    //     }
+    //     // console.log(entidadNueva, "entidad Nueva");
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    // getEntidad();
+  }, [entID, cargarPost, load]);
 
   return (
     <div className="entidadContainer">
@@ -148,8 +205,8 @@ export default function EntidadStats({ match, usuario }) {
       </main>
       <aside>
         <div className="newProjectList_Container">
-          <NewProject />
-          <NewProject />
+          {/* <NewProject /> */}
+          {/* <NewProject /> */}
         </div>
 
         {load ? (

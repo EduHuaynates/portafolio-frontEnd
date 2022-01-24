@@ -55,6 +55,7 @@ export default function BarChart({ barChartData }) {
     "rgba(255, 159, 64, 0.2)",
   ];
 
+  console.log(barChartData, "barChartData");
   const barData = barChartData.map((inv, index) => {
     return {
       entidad: inv.entidad,
@@ -96,9 +97,9 @@ export default function BarChart({ barChartData }) {
     },
   };
 
-  const monthArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) =>
-    moment().add(i, "months").format("YY-MM")
-  );
+  const monthArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => {
+    return moment().add(i, "months").format("YY-MM");
+  });
 
   const data = {
     labels: monthArray,

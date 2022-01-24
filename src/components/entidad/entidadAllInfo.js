@@ -19,7 +19,7 @@ export default function EntidadAllInfo({ singleEnt }) {
         {singleEnt.Barrera}
       </div>
 
-      {singleEnt.Contacto[0].length > 0 ? (
+      {singleEnt.Contacto.length > 0 ? (
         <div className="aside_entidad_feature">
           <p className="aside_entidad_subtitle">Contacto : </p>
           <div className="aside_entidad_nested nested_contact">
@@ -33,7 +33,7 @@ export default function EntidadAllInfo({ singleEnt }) {
                     <p className="aside_entidad_subtitle">
                       <i className="fas fa-user icon"></i>Persona :
                     </p>
-                    {c[0]}
+                    {c.name}
                   </div>
                   <div id={key} className="aside_entidad_feature feature_contact">
                     <p className="aside_entidad_subtitle">
@@ -41,10 +41,10 @@ export default function EntidadAllInfo({ singleEnt }) {
                     </p>
                     <a
                       className="link"
-                      href={`https://wa.me/51${c[1]}`}
+                      href={`https://wa.me/51${c.telephone}`}
                       target="_blank"
                     >
-                      {c[1]}
+                      {c.telephone}
                     </a>
                   </div>
                 </>

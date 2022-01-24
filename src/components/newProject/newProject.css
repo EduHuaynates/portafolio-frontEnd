@@ -1,12 +1,20 @@
 .newProject_Wrapper {
   /* border: 1px solid rgb(196, 190, 190, 2); */
-  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  /* box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
   border: 0 solid transparent;
-  border-radius: 10px;
+  border-radius: 10px; */
+  border-bottom: 1px solid red;
+  padding-bottom: 20px;
   margin-bottom: 20px;
-  padding: 10px 10px 0px 10px;
+  /* padding: 10px 10px 0px 10px; */
   background-color: #fff;
   /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.newProject_Wrapper:last-child {
+  border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .newAlert {
@@ -40,6 +48,7 @@
   font-size: 24px;
   font-weight: 600;
   text-align: center;
+  flex: 1;
 }
 
 .newProject_Body {

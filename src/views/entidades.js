@@ -1,14 +1,23 @@
-import { useEffect, useState } from "react";
-import Axios from "axios";
+// STYLESS
+import "../styles/entidades.css";
+
+// COMPONENTS
 import Entidad from "../components/entidad/entidad";
 import Skeleton from "../components/skeleton/skeleton";
 import Select from "react-select";
-import "../styles/entidades.css";
 
-async function getAllEntities() {
-  const { data: entidades } = await Axios.get("api/entitie/");
-  return entidades;
-}
+// HOOKS
+import { useEffect, useState } from "react";
+
+// UTILS
+import { getAllEntities } from "../utils/apiCalls";
+
+// import Axios from "axios";
+
+// async function getAllEntities() {
+//   const { data: entidades } = await Axios.get("api/entitie/");
+//   return entidades;
+// }
 
 export default function Entidades() {
   const [ent, setEnt] = useState([]);
@@ -16,15 +25,23 @@ export default function Entidades() {
   const [filterEnt, setFilterEnt] = useState(ent);
 
   useEffect(() => {
-    async function getEnts() {
-      try {
-        const entidades = await getAllEntities();
-        setEnt(entidades);
-        setFilterEnt(entidades);
-        setLoad(false);
-      } catch (error) {}
-    }
-    getEnts();
+    const entidadesAPI = Promise.all([getAllEntities()]);
+
+    entidadesAPI.then((values) => {
+      const [entAPI] = values;
+      setEnt(entAPI);
+      setFilterEnt(entAPI);
+      setLoad(false);
+    });
+    // async function getEnts() {
+    //   try {
+    //     const entidades = await getAllEntities();
+    //     setEnt(entidades);
+    //     setFilterEnt(entidades);
+    //     setLoad(false);
+    //   } catch (error) {}
+    // }
+    // getEnts();
   }, []);
 
   const handleFilter = (value) => {
@@ -48,8 +65,8 @@ export default function Entidades() {
             onChange={handleFilter}
             options={[
               {
-                value: "Prestamos con garantia inmobiliaria",
-                label: "Prestamos con garantia inmobiliaria",
+                value: "Préstamos con garantía inmobiliaria",
+                label: "Préstamos con garantía inmobiliaria",
               },
               {
                 value: "Financiamiento para PYMES",
@@ -88,13 +105,7 @@ export default function Entidades() {
           <Skeleton type={""} />
         ) : (
           filterEnt.map((entidad, key) => {
-            return (
-              <Entidad
-                key={key}
-                entidad={entidad}
-                type={"V"}
-              />
-            );
+            return <Entidad key={key} entidad={entidad} type={"V"} />;
           })
         )}
       </div>

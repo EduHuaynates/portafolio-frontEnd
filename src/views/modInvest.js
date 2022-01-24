@@ -1,23 +1,38 @@
-import { useState, useEffect } from "react";
+//STYLES
 import "../styles/form.css";
 import "../styles/modal.css";
+
+//HOOKS
+import { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import Axios from "axios";
-import scheDulePayment from "../utils/schedulePayment";
+
+//COMPONENTS
 import ScheduleTable from "../components/table/schedule";
 
-export default function AddInvest({ usuario, closeModal, modalData, type }) {
+//UTILS
+import scheDulePayment from "../utils/schedulePayment";
+import Axios from "axios";
+// import { investForm } from "../layout/invest";
+
+export default function AddInvest({
+  usuario,
+  modal,
+  closeModal,
+  modalData,
+  type,
+  formLayout,
+  layout,
+}) {
   const [sendData, setSendData] = useState(false);
   const [sendDataSchedule, setSendDataSchedule] = useState(false);
   const [invest, setInvest] = useState({
     ...modalData,
     retornoCapital: "Mensual",
     retornoInteres: "Mensual",
-    // Cuota: 0,
-    // CapitalRetornado: 0,
-    // InteresRetornado: 0,
     user: usuario._id,
   });
+  console.log(modalData, "modalData");
+  console.log(invest, "invest");
 
   useEffect(() => {
     if (sendData) {
@@ -80,13 +95,23 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
   }
 
   return (
-    <div className="modal_invest_background">
+    <div
+      className={
+        modal ? "modal_invest_background_showed" : "modal_invest_background"
+      }
+    >
       <div className="modal_invest_container">
         <div className="modal_header">
           {type === 2 ? (
-            <div className="modal_title"> Actualiza tu inversión</div>
-          ) : (
+            layout == "invest" ? (
+              <div className="modal_title"> Actualiza tu inversión</div>
+            ) : (
+              <div className="modal_title"> Actualiza tu proyecto</div>
+            )
+          ) : layout == "invest" ? (
             <div className="modal_title"> Agregar nueva inversión</div>
+          ) : (
+            <div className="modal_title"> Agregar nuevo proyecto</div>
           )}
 
           <div className="modal_close_container">
@@ -97,7 +122,37 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
         </div>
         <div className="modal_main_content">
           <form onSubmit={handleSubmit} className="authForm modalForm">
-            <span className="inputTitle"> Fecha : </span>
+            {formLayout.map((item) => {
+              return (
+                <>
+                  <span className="inputTitle"> {item.label} </span>
+                  {item.object == "input" ? (
+                    <input
+                      name={item.name}
+                      className={item.className}
+                      onChange={handleInputChange}
+                      type={item.type}
+                      placeholder={item.placeholder}
+                      value={invest[item.name]}
+                      required
+                    />
+                  ) : (
+                    <select
+                      onChange={handleInputChange}
+                      name={item.name}
+                      className={item.className}
+                      required
+                      value={invest[item.name]}
+                    >
+                      <option value="Mensual">Mensual</option>
+                      <option value="Final">Final</option>
+                    </select>
+                  )}
+                </>
+              );
+            })}
+
+            {/* <span className="inputTitle"> Fecha : </span>
             <input
               name="fecha"
               className="modalInput"
@@ -135,7 +190,6 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
               required
               value={invest.retornoInteres}
             >
-              {/* <option value=""></option> */}
               <option value="Mensual">Mensual</option>
               <option value="Final">Final</option>
             </select>
@@ -144,7 +198,6 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
               onChange={handleInputChange}
               className="modalInput modalSelect"
               name="retornoCapital"
-              // defaultValue={"Mensual"}
               required
               value={invest.retornoCapital}
             >
@@ -180,7 +233,7 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
               required
               placeholder="Periodo"
               value={invest.periodo}
-            />
+            /> */}
             <div className="btn_container">
               {type === 2 ? (
                 <button type="submit" className="modal_add_invest">
@@ -193,18 +246,23 @@ export default function AddInvest({ usuario, closeModal, modalData, type }) {
               )}
             </div>
           </form>
-          <div className="investment_schedule_container">
-            <div className="schedule_header_container">
-              <button
-                type=""
-                className="add_investment"
-                onClick={() => getSchedule()}
-              >
-                <i className="far fa-calendar-alt" /> Ver Cronograma
-              </button>
+          {layout == "invest" ? (
+            <div className="investment_schedule_container">
+              <div className="schedule_header_container">
+                <button
+                  type=""
+                  className="add_investment"
+                  onClick={() => getSchedule()}
+                >
+                  <i className="far fa-calendar-alt" /> Ver Cronograma
+                </button>
+              </div>
+
+              <ScheduleTable scheduleData={invest.schedule} />
             </div>
-            <ScheduleTable scheduleData={invest.schedule} />
-          </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <Toaster />

@@ -4,12 +4,28 @@
   background-color: rgba(0, 0, 0, 0.8);
   /* filter: blur(4px); */
   position: fixed;
+  top: -100vh;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  transition: top 1s ease, z-index 1s ease-out;
+}
+
+.modal_invest_background_showed {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* filter: blur(4px); */
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  transition: top 1s ease, z-index 1s ease-out;
 }
 
 .modal_invest_container {
@@ -31,7 +47,7 @@
   display: flex;
   gap: 5px;
   flex-direction: column;
-  border-right: 1px solid rgba(17, 17, 22, 0.144);
+  /* border-right: 1px solid rgba(17, 17, 22, 0.144); */
   padding-right: 20px;
   padding-top: 15px;
 }
@@ -63,6 +79,7 @@
   flex: 1;
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .modal_close_container {
@@ -111,4 +128,5 @@
 .investment_schedule_container {
   width: auto;
   padding-left: 20px;
+  border-left: 1px solid rgba(17, 17, 22, 0.144);
 }

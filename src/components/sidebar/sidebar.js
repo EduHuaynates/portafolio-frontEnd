@@ -38,7 +38,7 @@ export default function SideBar() {
         <li className="sideBar_Item">
           <NavLink
             className="sideBar_link"
-            to="/oportu"
+            to="/oportunidad"
             activeClassName="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
@@ -82,7 +82,7 @@ export default function SideBar() {
         <li className="sideBar_Item">
           <NavLink
             className="sideBar_link"
-            to="/oportu"
+            to="/mantein"
             activeClassName="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}

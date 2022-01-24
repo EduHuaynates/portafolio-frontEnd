@@ -51,6 +51,7 @@ export default function Table2({ inv, closeModal, setModalData, setType }) {
             className="table-edit-btn"
             onClick={() => {
               const investRow = row.allCells[row.id].row.original;
+              console.log(investRow, "investRow");
               closeModal(true);
               setModalData({
                 fecha: investRow.fecha.split("/").reverse().join("-"),

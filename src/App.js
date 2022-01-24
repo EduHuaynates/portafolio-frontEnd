@@ -1,13 +1,18 @@
-// import logo from "./logo.svg";
-import Home from "./views/home";
-import Login from "./views/login";
-import Signup from "./views/signup";
+// STYLES
+import "./App.css";
+
+//  COMPONENT
 import Error from "./components/error/Error";
-import NavBar from "./components/navBar/navBar";
+// import NavBar from "./components/navBar/navBar";
 import SideBar from "./components/sidebar/sidebar";
+
+// VIEWS
+import Dashboard from "./views/dashboard";
+import Signup from "./views/signup";
+import Login from "./views/login";
 import Entidades from "./views/entidades";
 import EntidadStats from "./views/entidadStats";
-import "./App.css";
+import EntidadMantein from "./views/entidadMantein";
 
 import Axios from "axios";
 import {
@@ -31,8 +36,6 @@ export default function App() {
   const [usuario, setUsuario] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
   const [error, SetError] = useState(null);
-
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadUser() {
@@ -120,11 +123,16 @@ export default function App() {
   function LoginRoutes({ login, showError, logout, usuario }) {
     return (
       <Routes>
-        <Route path="/" element={<Home usuario={usuario} />}></Route>
+        <Route path="/" element={<Dashboard usuario={usuario} />}></Route>
         <Route
           exact
           path="entidades"
           element={<Entidades usuario={usuario} />}
+        ></Route>
+        <Route
+          exact
+          path="mantein"
+          element={<EntidadMantein usuario={usuario} />}
         ></Route>
         <Route
           exact
