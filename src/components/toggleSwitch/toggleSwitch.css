@@ -1,0 +1,46 @@
+.Toggle_Wrapper {
+  position: relative;
+}
+
+.Toggle_Check {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.Toggle_Check:checked + .Toggle_Slider {
+  background-color: var(--primary600);
+}
+
+.Toggle_Check:checked + .Toggle_Slider::before {
+  left: 27px;
+}
+
+.Toggle_Slider {
+  display: flex;
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  border-radius: 100px;
+  background-color: #bfbfbf;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+/* .Toggle_Slider:active::before {
+  
+  left: calc(100%-2px);
+  transform: translateX(100%);
+} */
+
+.Toggle_Slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background-color: #fff;
+}

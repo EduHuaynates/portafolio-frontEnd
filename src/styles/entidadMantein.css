@@ -1,0 +1,84 @@
+.entidadMantein_Container {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 450px minmax(250px, 350px) 1fr;
+  gap: 1rem;
+}
+
+.entidadMantein_Logo_Container {
+  display: flex;
+  justify-content: center;
+}
+
+.entidadMantein_Logo {
+  max-width: 400px;
+}
+
+.entidadMantein_Wrapper {
+  /* width: 20%; */
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  gap: 0.5rem;
+  max-width: 450px;
+}
+
+.entidadProjects_Wrapper {
+  /* padding: 1rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.entidadProjects_active {
+  padding: 1rem;
+  box-shadow: 0 0 0.875rem 0 rgb(33 37 41 / 5%);
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.entidadProject_Single {
+  padding: 10px;
+  max-height: 600px;
+  overflow: auto;
+  /* border-bottom: 1px solid red; */
+}
+
+.entidadProject_New {
+  background-color: #fff;
+  border: 1px dashed var(--primary600);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  max-width: 350px;
+}
+
+.entidad_NewProject_icon {
+  font-size: 36px;
+  color: var(--primary600);
+}
+
+.inputAsArrayContainer {
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 5px;
+}
+
+.btnAddNewInput {
+  width: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+.btnSendEntitie {
+  background-color: var(--primary600);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+}

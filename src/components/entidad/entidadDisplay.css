@@ -1,0 +1,34 @@
+.entidadDisplayContainer {
+  padding: 20px 0px;
+  border-top: 1px solid var(--neutral200);
+}
+.entidadDisplayTitle {
+  margin-bottom: 10px;
+  /* background-color: rgb(211, 201, 201); */
+  /* padding: 5px 0px; */
+  font-weight: 700;
+  color: var(--neutral700);
+}
+.entidadDisplayDesc {
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.entidadDisplayContact {
+  display: flex;
+  gap: 10px;
+}
+
+.editBtnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+.editBtn {
+  padding: 10px;
+  background-color: var(--neutral700);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  cursor: pointer;
+}
