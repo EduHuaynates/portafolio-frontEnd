@@ -1,7 +1,7 @@
 {
   "name": "portafolio",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "http://EduHuaynates.github.io/portafolio-frontEnd",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -29,8 +29,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

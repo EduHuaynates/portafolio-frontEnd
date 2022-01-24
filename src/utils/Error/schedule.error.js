@@ -7,4 +7,4 @@ class RequiredFields extends Error {
   }
 }
 
-module.exports = { RequiredFields };
+export { RequiredFields };
