@@ -18,7 +18,7 @@ export default function SideBar() {
       </div>
       <ul className="sideBar_List">
         <li className="sideBar_Item">
-          <NavLink className="sideBar_link" to="/" activeClassName="selected">
+          <NavLink className="sideBar_link" to="/" activeclassname="selected">
             {/* <i className="fas fa-chart-pie " /> */}
             <Bxs_Dashboard className="icon inactive" />
             <span className="sideBar_Item_Desc">Dashboard</span>
@@ -28,7 +28,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/entidades"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-building icon inactive" /> */}
             <Bx_Cabinet className="icon inactive" />
@@ -39,7 +39,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/oportunidad"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
             <Bxs_Wallet className="icon inactive" />
@@ -50,7 +50,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/oportu"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
             <Bxs_Folder_Plus className="icon inactive" />
@@ -61,7 +61,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/oportu"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
             <Bx_Scatter_Chart className="icon inactive" />
@@ -72,7 +72,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/oportu"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
             <Bx_Cube_Alt className="icon inactive" />
@@ -83,7 +83,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/mantein"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
             <Bxs_Business className="icon inactive" />
@@ -94,7 +94,7 @@ export default function SideBar() {
           <NavLink
             className="sideBar_link"
             to="/oportu"
-            activeClassName="selected"
+            activeclassname="selected"
           >
             {/* <i className="fas fa-lightbulb icon inactive" /> */}
             <Bx_Star className="icon inactive" />

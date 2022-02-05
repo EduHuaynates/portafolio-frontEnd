@@ -3,6 +3,7 @@ import "../styles/entidades.css";
 
 // COMPONENTS
 import Entidad from "../components/entidad/entidad";
+import Card from "../components/cards/card";
 import Skeleton from "../components/skeleton/skeleton";
 import Select from "react-select";
 
@@ -57,6 +58,31 @@ export default function Entidades() {
 
   return (
     <div className="main_entidades">
+      <p className="main_entidades_title">Oportunidades de Inversión</p>
+      <div className="main_entidades_resume">
+        <Card
+          title={"Interes Total"}
+          kpi={"15,000 S/."}
+          color={`rgb(254, 231, 218)`}
+          fontColor={`rgb(239, 121, 46)`}
+          classIcon={`fas fa-piggy-bank`}
+        />
+        <Card
+          title={"Interes Promedio"}
+          kpi={"19.77%"}
+          color={`rgb(240, 221, 255)`}
+          fontColor={`rgb(141, 29, 235)`}
+          classIcon={`fas fa-percentage`}
+        />
+        <Card
+          title={"Interes Promedio"}
+          kpi={"19.77%"}
+          color={`rgb(240, 221, 255)`}
+          fontColor={`rgb(141, 29, 235)`}
+          classIcon={`fas fa-percentage`}
+        />
+      </div>
+
       <div className="entidadesFilter">
         <div className="singleFilterContainer">
           <p className="singleFilterTitle">Categorias de Inversion</p>

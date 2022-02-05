@@ -1,7 +1,7 @@
 .entidad_container {
   position: relative;
   width: 300px;
-  height: 350px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -28,10 +28,22 @@
   flex-direction: column;
   padding: 15px;
 }
+
 .entidad_title {
-  font-weight: 700;
+  font-weight: 500;
   display: flex;
   align-items: center;
+  font-size: 1.2srem;
+  /* color: var(--primary500); */
+}
+
+.entidad_oportunida_activa {
+  background-color: #fff;
+  border: 2px solid var(--primary200);
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--primary600);
+  font-size: 0.8rem;
 }
 
 .sk_entidad_title,
@@ -63,18 +75,24 @@
 .entidad_header_container {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .entidad_rate_container {
-  /* position: absolute; */
-  /* top: 5px;
-  left: 5px; */
-  /* border-radius: 10px; */
-  /* border-top-left-radius: 10px; */
-  /* border: 1px solid red; */
   padding: 5px;
-  /* color: #fff;
-  background-color: black; */
+}
+
+.entidad_metrics{
+  display: flex;
+  gap: 5px;
+}
+
+.entidad_inversiones {
+  border: 2px solid var(--primary200);
+  padding: 5px;
+  width: 50%;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .entidad_new_project_container {
