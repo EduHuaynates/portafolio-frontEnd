@@ -2,7 +2,7 @@
   "name": "portafolio",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://eduhuaynates.github.io/portafolio-frontEnd/",
+  "homepage": "http://eduhuaynates.github.io/portafolio-frontEnd/",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/styles": "^4.11.4",
